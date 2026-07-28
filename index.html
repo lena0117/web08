@@ -873,7 +873,7 @@
 
     <script>
         // 👇👇👇 請將引號內換成你的 Apps Script 部署網址 👇👇👇
-        const API_URL = 'https://script.google.com/macros/s/AKfycbxu7OJjvzwReuDyUYSTDXXXqS30_N_WuvDSOWwktnIAFGTWDHVgMLCp4EjKjvu2xSsS4A/exec';
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzuQsZRvYiX7sqlHCRqCeVsUeCh4bjUYdkuXaiI7rGzNFASZDJClRVQeIg_RwF4WbUI_g/exec';
 
         let coursesData = []; // 用來存放從試算表抓回來的課程資料
         let cartState = [];   // 購物車陣列
@@ -1067,9 +1067,6 @@
             try {
                 const response = await fetch(API_URL, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
                     body: JSON.stringify(payload)
                 });
 
