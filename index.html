@@ -1081,6 +1081,7 @@
                 customerNameInput.value = '';
                 customerEmailInput.value = '';
                 renderCart();
+                checkoutBtn.textContent = '前往結帳';
             } catch (error) {
                 console.error('送出失敗:', error);
                 setSubmitStatus('送出失敗，請稍後再試或聯絡我們。', true);
