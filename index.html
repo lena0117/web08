@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="學習如何讀懂貓咪行為，從零開始建立正向訓練與安定陪伴的基礎課程。">
+    <meta name="theme-color" content="#f7efe7">
+    <title>讀懂毛孩的心｜寵物行為基礎訓練課</title>
+    <style>
+        :root {
+            --primary-orange: #FF8C00;
+            --light-yellow: #FFF3E0;
+            --text-dark: #4A4A4A;
+            --white: #FFFFFF;
+            --primary-dark: #D84315;
+            --muted: #6d6d6d;
+            --card: #ffffff;
+            --shadow: 0 18px 45px rgba(74, 74, 74, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, 'LiHei Pro', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: linear-gradient(180deg, #fffaf4 0%, #fff 100%);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 2rem));
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(8px);
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-orange);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-orange);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--light-yellow) 0%, #ffe0b2 100%);
+            padding: 90px 5% 70px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-copy {
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 0.38rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(255,140,0,0.16);
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 3.2vw, 3rem);
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.04rem;
+            color: var(--muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin: 1.3rem 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255,140,0,0.2);
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--primary-dark);
+            border: 1px solid rgba(216,67,21,0.16);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+        }
+
+        .stat {
+            background: rgba(255,255,255,0.75);
+            border-radius: 14px;
+            padding: 0.9rem;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: 1.15rem;
+        }
+
+        .hero-visual {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 1.2rem;
+            box-shadow: var(--shadow);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        section {
+            padding: 70px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.9rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.2rem;
+        }
+
+        .section-intro {
+            text-align: center;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .card,
+        .feature-item,
+        .testimonial {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 1.15rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover,
+        .feature-item:hover,
+        .testimonial:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 48px rgba(74,74,74,0.16);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 0.28rem 0.7rem;
+            border-radius: 999px;
+            background: #fff4e8;
+            color: var(--primary-dark);
+            font-size: 0.84rem;
+            font-weight: 700;
+            margin-bottom: 0.65rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #fff7eb 0%, #ffe0b2 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-box .btn {
+            margin-top: 0.8rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(74, 74, 74, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 100;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            width: min(520px, 100%);
+            background: #fff;
+            border-radius: 24px;
+            padding: 1.4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeUp 0.25s ease both;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            border: none;
+            background: transparent;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        .modal h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .modal p {
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            border: 1px solid #e7d8c6;
+            border-radius: 12px;
+            padding: 0.8rem 0.9rem;
+            font: inherit;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: 2px solid rgba(255, 140, 0, 0.25);
+            border-color: var(--primary-orange);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        .success-message {
+            margin-top: 1rem;
+            color: #2e7d32;
+            font-weight: 700;
+            min-height: 1.2rem;
+        }
+
+        /* 表單與驗證設計 */
+        .register-section {
+            padding: 70px 5%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .required {
+            color: red;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        .input-error {
+            border-color: red !important;
+        }
+
+        /* 購物車整體佈局 (左 2 : 右 1) */
+        .shop-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: none;
+            background: #eee;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--text-dark);
+            transition: 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background: var(--light-yellow);
+            color: var(--primary-orange);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .menu-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .menu-card p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .add-btn {
+            background: transparent;
+            border: 1px solid var(--primary-orange);
+            color: var(--primary-orange);
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+
+        .cart-area {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-badge {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .cart-body {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .cart-empty {
+            text-align: center;
+            color: var(--muted);
+            padding: 40px 0;
+        }
+
+        .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .cart-item-title {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary-orange);
+        }
+
+        .remove-btn {
+            background: transparent;
+            border: none;
+            color: red;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            background: #fafafa;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .customer-form {
+            margin-bottom: 12px;
+        }
+
+        .customer-form .form-group {
+            margin-bottom: 10px;
+        }
+
+        .customer-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .customer-form input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #e3d7c3;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .customer-form input:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px 20px 40px;
+            background: #4a4a4a;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid,
+            .card-grid,
+            .feature-list,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="logo">🐱 喵星人行為學</div>
+            <nav>
+                <a href="#hero">首頁</a>
+                <a href="#pain-points">常見問題</a>
+                <a href="#features">課程特色</a>
+                <a href="#schedule">課程安排</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">品牌課程 · 寵物行為訓練</span>
+                    <h1>讀懂毛孩的心，讓陪伴更安心、更有默契</h1>
+                    <p>透過正向訓練、觀察技巧與環境設計，幫助你真正理解貓咪的情緒與需求，建立更穩定的關係。</p>
+                    <div class="cta-group">
+                        <a class="btn btn-primary" href="#">立即報名</a>
+                        <a class="btn btn-secondary" href="#features">查看課程內容</a>
+                    </div>
+                    <div class="stats">
+                        <div class="stat"><strong>4週</strong>完整課程</div>
+                        <div class="stat"><strong>100%</strong>正向教養</div>
+                        <div class="stat"><strong>1對1</strong>諮詢支持</div>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-label="貓咪與飼主的互動插圖">
+                    <svg viewBox="0 0 500 420" role="img" aria-label="貓咪與飼主互動插圖">
+                        <rect x="40" y="60" width="420" height="300" rx="28" fill="#FFF8EE" />
+                        <circle cx="380" cy="125" r="48" fill="#FFD491" />
+                        <circle cx="126" cy="280" r="70" fill="#FFE6BF" />
+                        <rect x="190" y="180" width="150" height="95" rx="20" fill="#FFB347" />
+                        <rect x="210" y="200" width="110" height="55" rx="16" fill="#FFF" />
+                        <circle cx="248" cy="227" r="18" fill="#4A4A4A" />
+                        <circle cx="280" cy="227" r="18" fill="#4A4A4A" />
+                        <path d="M242 250 Q264 268 286 250" stroke="#D84315" stroke-width="6" fill="none" stroke-linecap="round" />
+                        <rect x="120" y="150" width="80" height="90" rx="18" fill="#FF8C00" />
+                        <circle cx="160" cy="195" r="22" fill="#FFF" />
+                        <path d="M142 182 C150 165 172 165 180 182" stroke="#4A4A4A" stroke-width="5" fill="none" stroke-linecap="round" />
+                        <path d="M132 210 C150 225 172 225 191 210" stroke="#D84315" stroke-width="5" fill="none" stroke-linecap="round" />
+                        <rect x="300" y="140" width="92" height="74" rx="16" fill="#FFF" stroke="#FFD491" stroke-width="4" />
+                        <path d="M320 188 C330 162 360 162 370 188" stroke="#FF8C00" stroke-width="6" fill="none" stroke-linecap="round" />
+                        <path d="M285 275 C315 255 345 255 375 275" stroke="#FF8C00" stroke-width="8" fill="none" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section id="pain-points">
+            <div class="container">
+                <h2 class="section-title">你是否也遇過這些困擾？</h2>
+                <p class="section-intro">很多毛孩的行為其實是在表達需求，而不是故意作壞。學會看懂它們，才能真正改善關係。</p>
+                <div class="card-grid">
+                    <div class="card">
+                        <span class="pill">夜間活動</span>
+                        <h3>🐈 半夜奔跑、睡不好</h3>
+                        <p>貓咪在夜間活力爆發，讓人一整晚都難以入眠。</p>
+                    </div>
+                    <div class="card">
+                        <span class="pill">情緒訊號</span>
+                        <h3>🤮 亂吐、亂尿，找不到原因</h3>
+                        <p>有時候不是生病，而是情緒、壓力或環境問題。</p>
+                    </div>
+                    <div class="card">
+                        <span class="pill">環境需求</span>
+                        <h3>💦 到處抓咬、破壞空間</h3>
+                        <p>很多行為其實是在提醒你：他的空間與需求需要被理解。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2 class="section-title">課程核心特色</h2>
+                <p class="section-intro">從觀察、理解到實作，我們用最自然的方式，幫你把毛孩的行為變成可被理解與被引導的訊號。</p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h3>✨ 零打罵的正向訓練</h3>
+                        <p>建立信任與安全感，讓貓咪願意配合，而不是害怕。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>👀 觀察安定訊號</h3>
+                        <p>學會從肢體語言與行為判斷毛孩當下的心理狀態。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🤝 正向教養方法</h3>
+                        <p>用對的方法愛他，讓關係更穩定、更深厚。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🌳 環境豐富化</h3>
+                        <p>打造符合貓咪天性的生活空間，提升幸福感與穩定性。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule">
+            <div class="container">
+                <h2 class="section-title">報名流程與課程安排</h2>
+                <p class="section-intro">每週一次課程，內容包含行為觀察、正向訓練、環境設計與實作練習，課後也提供學員問答與個別建議。</p>
+                <div class="card-grid">
+                    <div class="testimonial">
+                        <span class="pill">Step 1</span>
+                        <h3>填寫預約資訊</h3>
+                        <p>留下你的毛孩狀況與需求，我們會先了解你想改善的重點。</p>
+                    </div>
+                    <div class="testimonial">
+                        <span class="pill">Step 2</span>
+                        <h3>安排課程時段</h3>
+                        <p>依照你的時間與需求，安排最適合的上課時段與學習節奏。</p>
+                    </div>
+                    <div class="testimonial">
+                        <span class="pill">Step 3</span>
+                        <h3>開始實作陪伴</h3>
+                        <p>上完課後，立即把觀察與訓練方法帶回家，陪伴關係更自然。</p>
+                    </div>
+                </div>
+
+                <div class="cta-box" style="margin-top: 1.2rem;">
+                    <h3>現在就預約，讓毛孩與你一起更安心</h3>
+                    <p>歡迎聯絡我們，安排一場適合你的課程諮詢。</p>
+                    <a class="btn btn-primary" href="#">立即報名</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 課程購物車區塊 -->
+    <section class="shop-section">
+        <div class="container">
+            <h2 class="section-title">選擇您的專屬課程計畫</h2>
+            
+            <div class="shop-layout">
+                <!-- 左側：課程選單 -->
+                <div class="menu-area">
+                    <!-- 分類標籤 -->
+                    <div class="category-filters">
+                        <button class="filter-btn active">全部</button>
+                        <button class="filter-btn">線上課程</button>
+                        <button class="filter-btn">實體訓練</button>
+                        <button class="filter-btn">客製諮詢</button>
+                    </div>
+                    
+                    <!-- 課程卡片網格 (Slot: course-grid) -->
+                    <div class="course-grid js-course-grid">
+                        <!-- JS 將會在這裡動態產生課程卡片 -->
+                    </div>
+                </div>
+
+                <!-- 右側：已選課程籃 -->
+                <div class="cart-area">
+                    <div class="cart-header">
+                        <h3>🛒 我的學習計畫</h3>
+                        <span class="cart-badge js-cart-badge">0 個品項</span>
+                    </div>
+
+                    <div class="customer-form" style="margin: 16px 20px 0;">
+                        <div class="form-group">
+                            <label for="customerName">姓名</label>
+                            <input id="customerName" class="js-customer-name" type="text" placeholder="請輸入您的姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerEmail">聯絡信箱</label>
+                            <input id="customerEmail" class="js-customer-email" type="email" placeholder="example@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="cart-body">
+                        <!-- 空購物車狀態 (Slot: cart-empty-state) -->
+                        <div class="cart-empty js-cart-empty">
+                            <div class="empty-icon">⚠️</div>
+                            <p>您的學習計畫目前是空的</p>
+                            <span>快前往左側選單加入適合的課程！</span>
+                        </div>
+                        
+                        <!-- 已選項目清單 (Slot: cart-items-list) -->
+                        <div class="cart-items js-cart-items">
+                            <!-- JS 將會在這裡動態產生已加入的課程 -->
+                        </div>
+                    </div>
+
+                    <div class="cart-footer">
+                        <div class="cart-total">
+                            <span>總計</span>
+                            <span class="total-price js-total-price">TWD 0</span>
+                        </div>
+                        <div class="js-submit-status" style="margin-bottom: 10px; min-height: 1.2em; font-size: 0.95rem; color: var(--primary-dark);"></div>
+                        <button class="btn-primary checkout-btn js-checkout-btn" disabled>前往結帳</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 喵星人行為學。讓每一次陪伴，都更有默契。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 👇👇👇 請將引號內換成你的 Apps Script 部署網址 👇👇👇
+        const API_URL = 'https://script.google.com/macros/s/AKfycbxu7OJjvzwReuDyUYSTDXXXqS30_N_WuvDSOWwktnIAFGTWDHVgMLCp4EjKjvu2xSsS4A/exec';
+
+        let coursesData = []; // 用來存放從試算表抓回來的課程資料
+        let cartState = [];   // 購物車陣列
+
+        // DOM 節點選取
+        const courseGrid = document.querySelector('.js-course-grid');
+        const cartItemsContainer = document.querySelector('.js-cart-items');
+        const cartEmptyState = document.querySelector('.js-cart-empty');
+        const cartBadge = document.querySelector('.js-cart-badge');
+        const totalPriceEl = document.querySelector('.js-total-price');
+        const checkoutBtn = document.querySelector('.js-checkout-btn');
+        const customerNameInput = document.querySelector('.js-customer-name');
+        const customerEmailInput = document.querySelector('.js-customer-email');
+        const submitStatusEl = document.querySelector('.js-submit-status');
+
+        function normalizeCourse(item = {}) {
+            const status = String(item.status ?? item['上架狀態'] ?? '').trim();
+            return {
+                id: item.id ?? item['課程編號'] ?? '',
+                name: item.name ?? item['課程名稱'] ?? '',
+                category: item.category ?? item['分類'] ?? '',
+                description: item.description ?? item['課程簡介'] ?? '',
+                price: Number(item.price ?? item['價格'] ?? 0),
+                status,
+                imageUrl: item.imageUrl ?? item['課程圖片網址'] ?? ''
+            };
+        }
+
+        function extractCoursesPayload(payload) {
+            if (Array.isArray(payload)) return payload;
+            if (payload && Array.isArray(payload.value)) return payload.value;
+            if (payload && Array.isArray(payload.data)) return payload.data;
+            return [];
+        }
+
+        // --- 1. 從 Google 試算表 API 抓取資料 ---
+        function fetchCourses() {
+            courseGrid.innerHTML = '<p style="grid-column: span 2; text-align: center; color: var(--muted);">正在從雲端載入最新課程...</p>';
+
+            fetch(API_URL)
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    return response.json();
+                })
+                .then(data => {
+                    const rawCourses = extractCoursesPayload(data);
+                    coursesData = rawCourses
+                        .map(normalizeCourse)
+                        .filter(course => {
+                            const status = String(course.status || '').trim();
+                            return status === '上架' || status === 'published' || status === 'true' || status === '1';
+                        });
+                    renderCourses();
+                })
+                .catch(error => {
+                    console.error('無法取得雲端課程資料:', error);
+                    courseGrid.innerHTML = '<p style="grid-column: span 2; text-align: center; color: red;">載入課程失敗，請檢查網路或 API 設定。</p>';
+                });
+        }
+
+        // --- 2. 渲染左側課程選單 ---
+        function renderCourses() {
+            if (coursesData.length === 0) {
+                courseGrid.innerHTML = '<p style="grid-column: span 2; text-align: center;">目前沒有上架的課程。</p>';
+                return;
+            }
+
+            let htmlContent = '';
+            coursesData.forEach(course => {
+                htmlContent += `
+                    <div class="menu-card">
+                        <div>
+                            <div class="menu-card-header">
+                                <span class="tag">${course.category || '課程'}</span>
+                                <span class="price">TWD ${course.price || 0}</span>
+                            </div>
+                            <h4>${course.name || '未命名課程'}</h4>
+                            <p>${course.description || '課程說明即將更新。'}</p>
+                        </div>
+                        <button class="add-btn js-add-to-cart" data-id="${course.id}">＋ 加入計畫</button>
+                    </div>
+                `;
+            });
+            courseGrid.innerHTML = htmlContent;
+            bindAddToCartEvents();
+        }
+
+        // --- 3. 綁定加入購物車事件 ---
+        function bindAddToCartEvents() {
+            const addBtns = document.querySelectorAll('.js-add-to-cart');
+            addBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const courseId = this.getAttribute('data-id');
+                    const course = coursesData.find(c => String(c.id) === String(courseId));
+
+                    if (!course) {
+                        alert('找不到此課程資料。');
+                        return;
+                    }
+
+                    const isExist = cartState.some(item => String(item.id) === String(courseId));
+                    if (!isExist) {
+                        cartState.push(course);
+                        renderCart();
+                    } else {
+                        alert('此課程已在您的學習計畫中囉！');
+                    }
+                });
+            });
+        }
+
+        // --- 4. 渲染右側購物車 ---
+        function renderCart() {
+            cartBadge.textContent = `${cartState.length} 個品項`;
+
+            if (cartState.length === 0) {
+                cartEmptyState.style.display = 'block';
+                cartItemsContainer.innerHTML = '';
+                checkoutBtn.disabled = true;
+                totalPriceEl.textContent = 'TWD 0';
+                return;
+            }
+
+            cartEmptyState.style.display = 'none';
+            checkoutBtn.disabled = false;
+
+            let cartHtml = '';
+            let total = 0;
+
+            cartState.forEach((item, index) => {
+                total += Number(item.price || 0);
+                cartHtml += `
+                    <div class="cart-item">
+                        <div>
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">TWD ${item.price || 0}</div>
+                        </div>
+                        <button class="remove-btn js-remove-item" data-index="${index}">🗑️</button>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = cartHtml;
+            totalPriceEl.textContent = `TWD ${total}`;
+
+            document.querySelectorAll('.js-remove-item').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    cartState.splice(index, 1);
+                    renderCart();
+                });
+            });
+        }
+
+        function setSubmitStatus(message, isError = false) {
+            if (!submitStatusEl) return;
+            submitStatusEl.textContent = message;
+            submitStatusEl.style.color = isError ? '#c62828' : 'var(--primary-dark)';
+        }
+
+        // --- 5. 結帳按鈕：送出報名資料到 Apps Script ---
+        checkoutBtn.addEventListener('click', async function() {
+            if (cartState.length === 0) return;
+
+            const customerName = (customerNameInput?.value || '').trim();
+            const customerEmail = (customerEmailInput?.value || '').trim();
+
+            if (!customerName || !customerEmail) {
+                setSubmitStatus('請填寫姓名與聯絡信箱後再送出。', true);
+                return;
+            }
+
+            const payload = {
+                action: 'submit',
+                customerName,
+                customerEmail,
+                courses: cartState.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    category: item.category,
+                    price: item.price
+                })),
+                total: cartState.reduce((sum, item) => sum + Number(item.price || 0), 0),
+                submittedAt: new Date().toISOString()
+            };
+
+            checkoutBtn.disabled = true;
+            checkoutBtn.textContent = '送出中...';
+            setSubmitStatus('正在送出您的報名資料...');
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const resultText = await response.text();
+                console.log('送出成功:', resultText);
+                setSubmitStatus('報名資料已送出，感謝您！');
+                cartState = [];
+                customerNameInput.value = '';
+                customerEmailInput.value = '';
+                renderCart();
+            } catch (error) {
+                console.error('送出失敗:', error);
+                setSubmitStatus('送出失敗，請稍後再試或聯絡我們。', true);
+                checkoutBtn.disabled = false;
+                checkoutBtn.textContent = '前往結帳';
+            }
+        });
+
+        // 初始化：直接呼叫遠端 API 抓取資料
+        fetchCourses();
+        renderCart();
+    </script>
+</body>
+</html>
